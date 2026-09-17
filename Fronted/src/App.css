@@ -1,0 +1,188 @@
+/* Color Variables */
+:root {
+  --navy: #0F2439;
+  --green: #319163;
+  --cream: #FFFEF4;
+  --error: #d9534f;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--navy);
+  color: var(--navy);
+}
+
+/* Base Page Layout */
+.page-wrapper {
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height support for mobile browsers */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+/* Card Container */
+.card {
+  background-color: var(--cream);
+  width: 100%;
+  max-width: 520px;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.title {
+  color: var(--navy);
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--navy);
+  opacity: 0.85;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+/* Mobile-First Form (Stacked Input & Button) */
+.qr-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.qr-input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 2px solid var(--green);
+  background-color: var(--cream);
+  color: var(--navy);
+  font-size: 1rem;
+  outline: none;
+  min-height: 48px; /* Accessible touch target */
+}
+
+.qr-input:focus {
+  box-shadow: 0 0 0 3px rgba(49, 145, 99, 0.25);
+}
+
+.generate-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--green);
+  color: var(--cream);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 48px;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.generate-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  margin-top: 16px;
+  color: var(--error);
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
+/* Result Section */
+.result-container {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.qr-wrapper {
+  padding: 16px;
+  border: 2px solid var(--green);
+  border-radius: 12px;
+  background-color: var(--cream);
+  display: inline-block;
+}
+
+.qr-image {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  display: block;
+}
+
+.download-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: 2px solid var(--navy);
+  background-color: var(--navy);
+  color: var(--cream);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 48px;
+  transition: opacity 0.2s ease;
+}
+
+.download-btn:hover {
+  opacity: 0.9;
+}
+
+/* Desktop Styles (Screens 768px and wider) */
+@media (min-width: 768px) {
+  .page-wrapper {
+    padding: 32px;
+  }
+
+  .card {
+    padding: 40px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  /* Inline form layout on larger screens */
+  .qr-form {
+    flex-direction: row;
+  }
+
+  .qr-input {
+    flex: 1;
+  }
+
+  .generate-btn {
+    width: auto;
+    white-space: nowrap;
+    padding: 0 24px;
+  }
+
+  .qr-image {
+    max-width: 240px;
+  }
+}
